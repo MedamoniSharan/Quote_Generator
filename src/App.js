@@ -2,16 +2,17 @@ import './App.css';
 import {useState} from 'react';
 
 function App() {
-  const [quotes, setQuotes] = useState([]);
-  const [quote, setQuote] = useState(null);
+  
+  
+  const [quote, setQuote] = useState({});
 
-  function handleQuote() {
+  const handleQuote=()=> {
     fetch('https://type.fit/api/quotes')
       .then(res => res.json())
       .then(data => {
         const randomIndex = Math.floor(Math.random() * data.length);
         setQuote(data[randomIndex]);
-        setQuotes(data);
+       
       })
       .catch(err => console.log(err))
   }
